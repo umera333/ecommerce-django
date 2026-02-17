@@ -32,24 +32,28 @@ http://127.0.0.1:8000/
 
 Lilac Lane is a simple and elegant online shopping platform designed with a soft aesthetic theme.
 
-## Project Structure
-
-ecommerce/
+ecommerce-django/
+│
+├── manage.py
+├── db.sqlite3
+├── README.md
 │
 ├── ecommerce/                # Main project folder
 │   ├── __init__.py
 │   ├── asgi.py
 │   ├── settings.py
 │   ├── urls.py
-│   ├── wsgi.py
+│   └── wsgi.py
 │
-├── amezon/                   # app
+├── amazon/                   # Main app
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── views.py
+│   ├── urls.py
+│   ├── tests.py
 │   ├── migrations/
-│   │   └── __init__.py
-│   │
-│   ├── static/
-│   │   └── css/
-│   │       └── style.css
 │   │
 │   ├── templates/
 │   │   └── store/
@@ -58,19 +62,12 @@ ecommerce/
 │   │       ├── cart.html
 │   │       └── login.html
 │   │
-│   ├── __init__.py
-│   ├── admin.py
-│   ├── apps.py
-│   ├── models.py
-│   ├── views.py
-│   ├── urls.py
-│   └── tests.py
+│   └── static/
+│       └── css/
+│           └── style.css
 │
-├── media/                    # Uploaded product images
-│
-├── db.sqlite3
-├── manage.py
-└── README.md
+└── media/                    # Uploaded product images
+
 
 ## To Clone It (open terminal and run)
  git clone https://github.com/umera333/ecommerce-django.git
