@@ -31,21 +31,20 @@ http://127.0.0.1:8000/
 ## About
 
 Lilac Lane is a simple and elegant online shopping platform designed with a soft aesthetic theme.
-
 ecommerce-django/
 │
 ├── manage.py
 ├── db.sqlite3
 ├── README.md
 │
-├── ecommerce/                # Main project folder
+├── ecommerce/
 │   ├── __init__.py
 │   ├── asgi.py
 │   ├── settings.py
 │   ├── urls.py
 │   └── wsgi.py
 │
-├── amazon/                   # Main app
+├── amazon/
 │   ├── __init__.py
 │   ├── admin.py
 │   ├── apps.py
@@ -66,7 +65,8 @@ ecommerce-django/
 │       └── css/
 │           └── style.css
 │
-└── media/                    # Uploaded product images
+└── media/
+
 
 
 ## To Clone It (open terminal and run)
