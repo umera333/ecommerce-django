@@ -1,0 +1,124 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Products</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+ 
+    <div style="
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:20px 40px;
+    ">
+
+        <div>
+            <a href="{% url 'view_cart' %}"
+               style="
+               background:#6a5acd;
+               color:white;
+               padding:10px 18px;
+               border-radius:8px;
+               text-decoration:none;
+               font-weight:bold;
+               box-shadow:0 4px 10px rgba(0,0,0,0.2);
+               ">
+                View Cart
+            </a>
+        </div>
+
+        <div>
+            {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}"
+                   style="
+                   background:#6a5acd;
+                   color:white;
+                   padding:10px 18px;
+                   border-radius:8px;
+                   text-decoration:none;
+                   font-weight:bold;
+                   box-shadow:0 4px 10px rgba(0,0,0,0.2);
+                   ">
+                   Logout
+                </a>
+            {% else %}
+                <a href="{% url 'login' %}"
+                   style="
+                   background:#6a5acd;
+                   color:white;
+                   padding:10px 18px;
+                   border-radius:8px;
+                   text-decoration:none;
+                   font-weight:bold;
+                   box-shadow:0 4px 10px rgba(0,0,0,0.2);
+                   ">
+                   Login
+                </a>
+            {% endif %}
+        </div>
+
+    </div>
+
+    
+    <div class="container-box">
+
+        <h1> Lilac Lane </h1>
+
+        <div class="container">
+        {% for product in products %}
+            <div class="card">
+                <h3>{{ product.name }}</h3>
+
+                {% if product.image %}
+                    <img src="{{ product.image.url }}" class="product-img">
+                {% endif %}
+
+                <p class="price">PRICE: ₹{{ product.price }}</p>
+
+                
+                <div style="display:flex; justify-content:center; gap:12px; margin-top:10px;">
+
+    <a href="{% url 'product_detail' product.id %}"
+       style="
+       background:#ff1493;
+       color:white;
+       padding:10px 18px;
+       border-radius:8px;
+       text-decoration:none;
+       font-weight:bold;
+       box-shadow:0px 4px 10px rgba(0,0,0,0.2);
+       white-space:nowrap;
+       ">
+       VIEW
+    </a>
+
+    <a href="{% url 'add_to_cart' product.id %}"
+       style="
+       background:#c71585;
+       color:white;
+       padding:10px 18px;
+       border-radius:8px;
+       text-decoration:none;
+       font-weight:bold;
+       box-shadow:0px 4px 10px rgba(0,0,0,0.2);
+       white-space:nowrap;
+       ">
+       Add to Cart
+    </a>
+
+</div>
+
+
+            </div>
+        {% endfor %}
+        </div>
+
+    </div>
+
+</body>
+</html>

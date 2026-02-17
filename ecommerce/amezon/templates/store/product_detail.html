@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ product.name }}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body style="background-color:#e6e6fa; font-family: Arial; margin:0; padding:40px;">
+
+<div style="
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    width:400px;
+    margin:auto;
+    box-shadow:0px 6px 15px rgba(0,0,0,0.2);
+    text-align:center;
+">
+
+    <h2>{{ product.name }}</h2>
+
+    {% if product.image %}
+        <img src="{{ product.image.url }}" 
+             style="width:250px; height:250px; object-fit:cover; border-radius:10px;">
+    {% endif %}
+
+    <p style="margin-top:15px;">
+        {{ product.description }}
+    </p>
+
+    <p style="font-weight:bold; font-size:18px;">
+        Price: ₹{{ product.price }}
+    </p>
+
+    <a href="{% url 'add_to_cart' product.id %}"
+       style="
+            display:inline-block;
+            background:#6a5acd;
+            color:white;
+            padding:10px 15px;
+            border-radius:6px;
+            text-decoration:none;
+            margin-top:10px;
+       ">
+        ADD TO CART
+    </a>
+
+</div>
+
+</body>
+</html>
